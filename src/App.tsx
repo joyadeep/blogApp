@@ -8,9 +8,10 @@ import Signup from './pages/Signup';
 function App() {
   return (
     <>
-    {/* <Home/> */}
-    {/* <Createblog/> */}
-      {/* <Signup/> */}
+     {/* TODO: create header + routing   */}
+    <Home/>
+    <Createblog/>
+      <Signup/>
       <Login/>
     </>
   );

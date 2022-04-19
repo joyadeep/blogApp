@@ -1,19 +1,19 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import Button from '../modules/Button'
 import Input from '../modules/Input'
 
 const Loginform:React.FC = () => {
   const[user,setUser]=useState({username:'',password:''});
   
-  const handleChange=(e:React.FormEvent<HTMLFormElement>)=>{
-    const name=e.target;
-    console.log(name);
-    
-  }
-
   const handleSubmit=(e:React.FormEvent<HTMLFormElement>)=>{
     e.preventDefault();
-    console.log("form submitted");
+    setUser({username:'',password:''});
+  }
+
+  const handleChange=(event:React.ChangeEvent<HTMLInputElement>)=>{
+    const{name,value}=event.target;
+    setUser({...user,[name]:value})
+    
     
   }
   return (
@@ -21,8 +21,8 @@ const Loginform:React.FC = () => {
         <h1 className='text-4xl text-slate-700 font-semibold'>Login</h1>
         <form className='py-5' onSubmit={handleSubmit}>
          
-            <Input placeholder="email or username" type="text" value={user.username} handleChange={(e)=>{handleChange(e)}} name="username"  />
-            <Input placeholder='password' value={user.password} name="password" type="password"/>
+            <Input placeholder="email or username" type="text" value={user.username} handleChange={handleChange} name="username"  />
+            <Input placeholder='password' value={user.password} handleChange={handleChange} name="password" type="password" isComplete='true'/>
             <div className='flex flex-row text-center justify-between mb-3 w-11/12 mx-auto'> 
                 <div>forgot password</div>
                 <div>signup</div>
