@@ -3,7 +3,7 @@ import Bloglist from '../components/Bloglist'
 
 const Home = () => {
   return (
-    <div className='py-5 w-11/12 mx-auto h-screen'>
+    <div className='py-10 w-11/12 mx-auto h-fit'>
       <Bloglist/>
     </div>
   )
